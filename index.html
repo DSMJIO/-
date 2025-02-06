@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六口的赛博灵堂</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            width: 55%;
+            height: auto;
+        }
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: gray;
+        }
+        #counter {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>六口的赛博灵堂</h1>
+    <img src="https://i.imgur.com/wzSOLHT.jpeg" alt="灵堂图片">  
+    <br>
+    <button onclick="offerFlower()">献花</button>
+    <p id="counter">已经有 <span id="flowerCount">0</span> 人献过花</p>
+    
+    <script>
+        let count = localStorage.getItem("flowerCount") || 0;
+        document.getElementById("flowerCount").textContent = count;
+        
+        function offerFlower() {
+            count++;
+            localStorage.setItem("flowerCount", count);
+            document.getElementById("flowerCount").textContent = count;
+        }
+    </script>
+</body>
+</html>
